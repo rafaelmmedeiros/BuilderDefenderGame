@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e52fc0fe0482b545b00858950322e5e, type: 3}
-  m_Name: StoneHarvester
+  m_Script: {fileID: 11500000, guid: 4ef1cb1ce75a3f04eaca3e3309e38466, type: 3}
+  m_Name: Wood
   m_EditorClassIdentifier: 
-  nameString: 
+  nameString: Wood
