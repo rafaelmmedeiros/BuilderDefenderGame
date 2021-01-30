@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class BuildingManager : MonoBehaviour {
 
     public static BuildingManager Instance { get; private set; }
+
     private Camera mainCamera;
     private BuildingTypeListSO buildingTypeList;
     private BuildingTypeSO activeBuildingType;
@@ -14,7 +15,6 @@ public class BuildingManager : MonoBehaviour {
         Instance = this;
 
         buildingTypeList = Resources.Load<BuildingTypeListSO>(typeof(BuildingTypeListSO).Name);
-        activeBuildingType = buildingTypeList.list[0];
     }
 
     private void Start() {
@@ -23,7 +23,11 @@ public class BuildingManager : MonoBehaviour {
 
     private void Update() {
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject()) {
-            Instantiate(activeBuildingType.prefab, GetMouseWorldPosition(), Quaternion.identity);
+
+            if (activeBuildingType != null) {
+                Instantiate(activeBuildingType.prefab, GetMouseWorldPosition(), Quaternion.identity);
+            }
+
         }
     }
 

@@ -7,6 +7,7 @@ public class BuildingTypeSelectUI : MonoBehaviour {
 
     [SerializeField] private Sprite arrowSprite;
     private Dictionary<BuildingTypeSO, Transform> buttonTransformDictionary;
+    private Transform arrowButton;
 
     private void Awake() {
         Transform buttonTemplate = transform.Find("buttonTemplate");
@@ -17,11 +18,27 @@ public class BuildingTypeSelectUI : MonoBehaviour {
         buttonTransformDictionary = new Dictionary<BuildingTypeSO, Transform>();
 
         int index = 0;
+
+        arrowButton = Instantiate(buttonTemplate, transform);
+        arrowButton.gameObject.SetActive(true);
+
+        float offsetAmount = +110f;
+        arrowButton.GetComponent<RectTransform>().anchoredPosition = new Vector2(offsetAmount * index, 0);
+
+        arrowButton.Find("image").GetComponent<Image>().sprite = arrowSprite;
+        arrowButton.Find("image").GetComponent<RectTransform>().sizeDelta = new Vector2(0, -40);
+
+        arrowButton.GetComponent<Button>().onClick.AddListener(() => {
+            BuildingManager.Instance.SetActiveBuildingType(null);
+        });
+
+        index++;
+
         foreach (BuildingTypeSO buildingType in buildingTypeList.list) {
             Transform buttonTransform = Instantiate(buttonTemplate, transform);
             buttonTransform.gameObject.SetActive(true);
 
-            float offsetAmount = +110f;
+            offsetAmount = +110f;
             buttonTransform.GetComponent<RectTransform>().anchoredPosition = new Vector2(offsetAmount * index, 0);
 
             buttonTransform.Find("image").GetComponent<Image>().sprite = buildingType.sprite;
@@ -40,6 +57,8 @@ public class BuildingTypeSelectUI : MonoBehaviour {
     }
 
     private void UpdateActiveBuildingTypeButton() {
+        arrowButton.Find("selected").gameObject.SetActive(false);
+
         foreach (BuildingTypeSO buildingType in buttonTransformDictionary.Keys) {
             Transform buttonTransform = buttonTransformDictionary[buildingType];
 
@@ -47,6 +66,12 @@ public class BuildingTypeSelectUI : MonoBehaviour {
         }
 
         BuildingTypeSO activeBuildingType = BuildingManager.Instance.GetActiveBuildingType();
-        buttonTransformDictionary[activeBuildingType].Find("selected").gameObject.SetActive(true);
+
+        if (activeBuildingType == null) {
+            arrowButton.Find("selected").gameObject.SetActive(true);
+        } else {
+            buttonTransformDictionary[activeBuildingType].Find("selected").gameObject.SetActive(true);
+        }
+
     }
 }
