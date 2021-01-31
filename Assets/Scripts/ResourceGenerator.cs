@@ -20,8 +20,9 @@ public class ResourceGenerator : MonoBehaviour {
         foreach (Collider2D collider2D in collider2DArray) {
             ResourceNode resourceNode = collider2D.GetComponent<ResourceNode>();
             if (resourceNode != null) {
-                // It´s a resource node
-                nearbyResourceAmount++;
+                if (resourceNode.resourceType == resourceGeneratorData.resourceType) {
+                    nearbyResourceAmount++;
+                }
             }
         }
 

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7781165487358309157}
   - component: {fileID: 4035122186598364257}
+  - component: {fileID: 4898503071371098296}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -70,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 793ca27a5a3378149aaa12abe85933f4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e09981bcaf0d52049b2bad1cf5d42346, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -81,6 +82,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4898503071371098296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76369620382030698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d1767e4c42797849b4bca27805b853c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runOnce: 1
+  positionOffsetY: 0
 --- !u!1 &6541196698147101314
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,7 +108,7 @@ GameObject:
   - component: {fileID: -5228111007921873951}
   - component: {fileID: 1359755501632019113}
   m_Layer: 0
-  m_Name: pfWoodHarvester
+  m_Name: pfSilverHarvester
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -138,4 +153,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b409c371fb588a4479eff8d37d0648e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingType: {fileID: 11400000, guid: 5881eda28aef27f4b89cb0b1e9ae9ed2, type: 2}
+  buildingType: {fileID: 11400000, guid: 234c30b4768e82748a50491409c874dd, type: 2}
