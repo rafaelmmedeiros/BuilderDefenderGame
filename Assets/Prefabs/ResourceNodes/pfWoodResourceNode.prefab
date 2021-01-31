@@ -74,10 +74,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: pfTreeVisual
       objectReference: {fileID: 0}
+    - target: {fileID: 2546655829557822754, guid: e5d4607771922bd41abbbb7a46c8aa8e,
+        type: 3}
+      propertyPath: positionOffsetY
+      value: -3.3
+      objectReference: {fileID: 0}
     - target: {fileID: 2612807996987215014, guid: e5d4607771922bd41abbbb7a46c8aa8e,
         type: 3}
       propertyPath: positionOffsetY
-      value: -3.2
+      value: -3.3
       objectReference: {fileID: 0}
     - target: {fileID: 5877761172366299447, guid: e5d4607771922bd41abbbb7a46c8aa8e,
         type: 3}
@@ -133,6 +138,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7514359903045103890, guid: e5d4607771922bd41abbbb7a46c8aa8e,
+        type: 3}
+      propertyPath: positionOffsetY
+      value: -2.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8069227102379002409, guid: e5d4607771922bd41abbbb7a46c8aa8e,
+        type: 3}
+      propertyPath: positionOffsetY
+      value: -2.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5d4607771922bd41abbbb7a46c8aa8e, type: 3}

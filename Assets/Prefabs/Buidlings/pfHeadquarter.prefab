@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 793ca27a5a3378149aaa12abe85933f4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7030b8e3eb49e8440ae8eb3ec8b45d05, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 1359755501632019113}
   - component: {fileID: 8098427559801552565}
   m_Layer: 0
-  m_Name: pfWoodHarvester
+  m_Name: pfHeadquarter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b409c371fb588a4479eff8d37d0648e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingType: {fileID: 11400000, guid: 5881eda28aef27f4b89cb0b1e9ae9ed2, type: 2}
+  buildingType: {fileID: 11400000, guid: 3ad42f2bdc10bde488f3b663b4160d0f, type: 2}
 --- !u!61 &8098427559801552565
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -168,7 +168,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.08189535, y: -0.36312366}
+  m_Offset: {x: 0.016793013, y: -0.47881866}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -179,5 +179,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.228797, y: 4.274113}
+  m_Size: {x: 6.567158, y: 4.2401013}
   m_EdgeRadius: 0
