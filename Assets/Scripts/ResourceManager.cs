@@ -6,9 +6,7 @@ using UnityEngine;
 public class ResourceManager : MonoBehaviour {
 
     public static ResourceManager Instance { get; private set; }
-
     public event EventHandler OnResourceAmountChanged;
-
     private Dictionary<ResourceTypeSO, int> resourceAmountDictionary;
 
     private void Awake() {
@@ -19,8 +17,6 @@ public class ResourceManager : MonoBehaviour {
         foreach (ResourceTypeSO resourceType in resourceTypeList.list) {
             resourceAmountDictionary[resourceType] = 0;
         }
-
-        TestLogResourceAmountDictionary();
     }
 
     private void Update() {
@@ -28,7 +24,6 @@ public class ResourceManager : MonoBehaviour {
             ResourceTypeListSO resourceTypeList = Resources.Load<ResourceTypeListSO>(typeof(ResourceTypeListSO).Name);
             AddResource(resourceTypeList.list[0], 2);
 
-            TestLogResourceAmountDictionary();
         }
     }
 
@@ -42,7 +37,6 @@ public class ResourceManager : MonoBehaviour {
         resourceAmountDictionary[resourceType] += amount;
 
         OnResourceAmountChanged?.Invoke(this, EventArgs.Empty);
-        TestLogResourceAmountDictionary();
     }
 
     public int GetResourceAmount(ResourceTypeSO resourceType) {

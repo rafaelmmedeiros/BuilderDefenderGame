@@ -4,13 +4,40 @@ using UnityEngine;
 
 public class ResourceGenerator : MonoBehaviour {
 
-    private BuildingTypeSO buildingType;
+    private ResourceGeneratorData resourceGeneratorData;
     private float timer;
     private float timerMax;
 
     private void Awake() {
-        buildingType = GetComponent<BuildingTypeHolder>().buildingType;
-        timerMax = buildingType.resourceGeneratorData.timerMax;
+        resourceGeneratorData = GetComponent<BuildingTypeHolder>().buildingType.resourceGeneratorData;
+        timerMax = resourceGeneratorData.timerMax;
+    }
+
+    private void Start() {
+        Collider2D[] collider2DArray = Physics2D.OverlapCircleAll(transform.position, resourceGeneratorData.resourceDetectionRadius);
+
+        int nearbyResourceAmount = 0;
+        foreach (Collider2D collider2D in collider2DArray) {
+            ResourceNode resourceNode = collider2D.GetComponent<ResourceNode>();
+            if (resourceNode != null) {
+                // It´s a resource node
+                nearbyResourceAmount++;
+            }
+        }
+
+        nearbyResourceAmount = Mathf.Clamp(nearbyResourceAmount, 0, resourceGeneratorData.maxResourceAmount);
+
+        if (nearbyResourceAmount == 0) {
+            // No Nodes nearby
+            // disable resource genrator
+            enabled = false;
+        } else {
+            timerMax = (resourceGeneratorData.timerMax / 2f) +
+                resourceGeneratorData.timerMax *
+                (1 - (float)nearbyResourceAmount / resourceGeneratorData.maxResourceAmount);
+        }
+
+        Debug.Log("nearbyResourceAmount: " + nearbyResourceAmount + " - timerMax: " + timerMax);
     }
 
     private void Update() {
@@ -19,7 +46,7 @@ public class ResourceGenerator : MonoBehaviour {
 
         if (timer <= 0f) {
             timer += timerMax;
-            ResourceManager.Instance.AddResource(buildingType.resourceGeneratorData.resourceType, 1);
+            ResourceManager.Instance.AddResource(resourceGeneratorData.resourceType, 1);
         }
     }
 }
