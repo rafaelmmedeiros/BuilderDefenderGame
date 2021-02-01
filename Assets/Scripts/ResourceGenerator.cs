@@ -50,4 +50,16 @@ public class ResourceGenerator : MonoBehaviour {
             ResourceManager.Instance.AddResource(resourceGeneratorData.resourceType, 1);
         }
     }
+
+    public ResourceGeneratorData GetResourceGeneratorData() {
+        return resourceGeneratorData;
+    }
+
+    public float GetTimerNormalized() {
+        return timer / timerMax;
+    }
+
+    public float GetAmountGeneratedPerSecond() {
+        return 1 / timerMax;
+    }
 }
