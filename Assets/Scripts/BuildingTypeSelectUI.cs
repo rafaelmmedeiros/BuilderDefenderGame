@@ -34,6 +34,16 @@ public class BuildingTypeSelectUI : MonoBehaviour {
             BuildingManager.Instance.SetActiveBuildingType(null);
         });
 
+        // Using the class with Interfaces of mouse OnPinterEnter and exit.
+        MouseEnterExitEvents mouseEnterExitEvents = arrowButton.GetComponent<MouseEnterExitEvents>();
+        mouseEnterExitEvents.OnMouseEnter += (object sender, EventArgs eventArgs) => {
+            TooltipUI.Insntace.Show("Arrow");
+        };
+
+        mouseEnterExitEvents.OnMouseExit += (object sender, EventArgs eventArgs) => {
+            TooltipUI.Insntace.Hide();
+        };
+
         index++;
 
         foreach (BuildingTypeSO buildingType in buildingTypeList.list) {
@@ -55,9 +65,9 @@ public class BuildingTypeSelectUI : MonoBehaviour {
             });
 
             // Using the class with Interfaces of mouse OnPinterEnter and exit.
-            MouseEnterExitEvents mouseEnterExitEvents = buttonTransform.GetComponent<MouseEnterExitEvents>();
+            mouseEnterExitEvents = buttonTransform.GetComponent<MouseEnterExitEvents>();
             mouseEnterExitEvents.OnMouseEnter += (object sender, EventArgs eventArgs) => {
-                TooltipUI.Insntace.Show(buildingType.nameString);
+                TooltipUI.Insntace.Show(buildingType.nameString + "\n" + buildingType.GetConstructionResourceCostString());
             };
 
             mouseEnterExitEvents.OnMouseExit += (object sender, EventArgs eventArgs) => {
