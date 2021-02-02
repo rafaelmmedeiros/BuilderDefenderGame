@@ -42,4 +42,28 @@ public class ResourceManager : MonoBehaviour {
     public int GetResourceAmount(ResourceTypeSO resourceType) {
         return resourceAmountDictionary[resourceType];
     }
+
+    public bool CanAfford(ResourceAmount[] resourceAmountsArray) {
+        // Run all array and verify cost and amount
+        foreach (ResourceAmount resourceAmount in resourceAmountsArray) {
+            // Verify if has resource amount in a interecation
+            if (GetResourceAmount(resourceAmount.resourceType) >= resourceAmount.amount) {
+                // Can afford
+            } else {
+                // No money... sorry.
+                return false;
+            }
+        }
+        // Congratulations for a new BUILDING!
+        return true;
+    }
+
+    public void SpendResouces(ResourceAmount[] resourceAmountsArray) {
+        // Run all array and spend each resource.
+        foreach (ResourceAmount resourceAmount in resourceAmountsArray) {
+            // Time to pay...
+            resourceAmountDictionary[resourceAmount.resourceType] -= resourceAmount.amount;
+
+        }
+    }
 }

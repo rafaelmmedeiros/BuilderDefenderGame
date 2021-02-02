@@ -8,9 +8,7 @@ public class BuildingManager : MonoBehaviour {
 
     public static BuildingManager Instance { get; private set; }
 
-
     public event EventHandler<OnActiveBuildingTypeChangeEventArgs> OnActiveBuildingTypeChange;
-
 
     public class OnActiveBuildingTypeChangeEventArgs : EventArgs {
         public BuildingTypeSO activeBuildingType;
@@ -32,8 +30,15 @@ public class BuildingManager : MonoBehaviour {
 
     private void Update() {
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject()) {
+            // Condition to be able to select a construciton to build
             if (activeBuildingType != null && CanSpawnBuilding(activeBuildingType, UtilsClass.GetMouseWorldPosition())) {
-                Instantiate(activeBuildingType.prefab, UtilsClass.GetMouseWorldPosition(), Quaternion.identity);
+                // Do you can afford the building?
+                if (ResourceManager.Instance.CanAfford(activeBuildingType.constructResourceCostArray)) {
+                    // Time to pay...
+                    ResourceManager.Instance.SpendResouces(activeBuildingType.constructResourceCostArray);
+                    // Congratulations!! Time to Instantiate you new BUILDING!!
+                    Instantiate(activeBuildingType.prefab, UtilsClass.GetMouseWorldPosition(), Quaternion.identity);
+                }
             }
             Debug.Log("CanSpawnBuilding: " + CanSpawnBuilding(buildingTypeList.list[0], UtilsClass.GetMouseWorldPosition()));
         }
