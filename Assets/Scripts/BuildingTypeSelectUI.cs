@@ -54,6 +54,16 @@ public class BuildingTypeSelectUI : MonoBehaviour {
                 BuildingManager.Instance.SetActiveBuildingType(buildingType);
             });
 
+            // Using the class with Interfaces of mouse OnPinterEnter and exit.
+            MouseEnterExitEvents mouseEnterExitEvents = buttonTransform.GetComponent<MouseEnterExitEvents>();
+            mouseEnterExitEvents.OnMouseEnter += (object sender, EventArgs eventArgs) => {
+                TooltipUI.Insntace.Show(buildingType.nameString);
+            };
+
+            mouseEnterExitEvents.OnMouseExit += (object sender, EventArgs eventArgs) => {
+                TooltipUI.Insntace.Hide();
+            };
+
             buttonTransformDictionary[buildingType] = buttonTransform;
             index++;
         }

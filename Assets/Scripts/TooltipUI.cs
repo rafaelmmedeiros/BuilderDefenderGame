@@ -5,6 +5,8 @@ using TMPro;
 
 public class TooltipUI : MonoBehaviour {
 
+    public static TooltipUI Insntace { get; private set; }
+
     [SerializeField] private RectTransform canvasRectTransform;
 
     private RectTransform rectTransform;
@@ -12,11 +14,12 @@ public class TooltipUI : MonoBehaviour {
     private RectTransform backgroundRectTransform;
 
     private void Awake() {
+        Insntace = this;
         rectTransform = GetComponent<RectTransform>();
         textMeshPro = transform.Find("text").GetComponent<TextMeshProUGUI>();
         backgroundRectTransform = transform.Find("background").GetComponent<RectTransform>();
 
-        SetText("Congrats, you are not blind");
+        Hide();
     }
 
     private void Update() {
@@ -42,5 +45,14 @@ public class TooltipUI : MonoBehaviour {
         Vector2 textSize = textMeshPro.GetRenderedValues(false);
         Vector2 padding = new Vector2(8, 8);
         backgroundRectTransform.sizeDelta = textSize + padding;
+    }
+
+    public void Show(string tooltipText) {
+        gameObject.SetActive(true);
+        SetText(tooltipText);
+    }
+
+    public void Hide() {
+        gameObject.SetActive(false);
     }
 }
