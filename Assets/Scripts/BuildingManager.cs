@@ -40,7 +40,7 @@ public class BuildingManager : MonoBehaviour {
                     Instantiate(activeBuildingType.prefab, UtilsClass.GetMouseWorldPosition(), Quaternion.identity);
                 }
             }
-            Debug.Log("CanSpawnBuilding: " + CanSpawnBuilding(buildingTypeList.list[0], UtilsClass.GetMouseWorldPosition()));
+            //Debug.Log("CanSpawnBuilding: " + CanSpawnBuilding(buildingTypeList.list[0], UtilsClass.GetMouseWorldPosition()));
         }
     }
 
