@@ -12,8 +12,9 @@ public class BuildingManager : MonoBehaviour {
 
     public class OnActiveBuildingTypeChangeEventArgs : EventArgs {
         public BuildingTypeSO activeBuildingType;
-
     }
+
+    [SerializeField] private Building headquartersBuilding;
 
     private Camera mainCamera;
     private BuildingTypeListSO buildingTypeList;
@@ -47,6 +48,11 @@ public class BuildingManager : MonoBehaviour {
                     TooltipUI.Insntace.Show(errorMessage, new TooltipUI.TooltipTimer { timer = 2f });
                 }
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.T)) {
+            Vector3 enemySpawnPosition = UtilsClass.GetMouseWorldPosition() + UtilsClass.GetRandomDirection() * 5f;
+            Enemy.Create(enemySpawnPosition);
         }
     }
 
@@ -102,5 +108,9 @@ public class BuildingManager : MonoBehaviour {
         errorMessage = "To far of your base!";
         return false;
 
+    }
+
+    public Building GetHeadquartersBuilding() {
+        return headquartersBuilding;
     }
 }
