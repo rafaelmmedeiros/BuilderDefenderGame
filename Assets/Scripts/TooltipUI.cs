@@ -12,6 +12,7 @@ public class TooltipUI : MonoBehaviour {
     private RectTransform rectTransform;
     private TextMeshProUGUI textMeshPro;
     private RectTransform backgroundRectTransform;
+    private TooltipTimer tooltipTimer;
 
     private void Awake() {
         Insntace = this;
@@ -23,6 +24,17 @@ public class TooltipUI : MonoBehaviour {
     }
 
     private void Update() {
+        HandleFollowMouse();
+
+        if (tooltipTimer != null) {
+            tooltipTimer.timer -= Time.deltaTime;
+            if (tooltipTimer.timer <= 0) {
+                Hide();
+            }
+        }
+    }
+
+    private void HandleFollowMouse() {
         Vector2 anchoredPosition = Input.mousePosition / canvasRectTransform.localScale.x;
 
         // Tooltip goes outside screen
@@ -47,12 +59,18 @@ public class TooltipUI : MonoBehaviour {
         backgroundRectTransform.sizeDelta = textSize + padding;
     }
 
-    public void Show(string tooltipText) {
+    public void Show(string tooltipText, TooltipTimer tooltipTimer = null) {
+        this.tooltipTimer = tooltipTimer;
         gameObject.SetActive(true);
         SetText(tooltipText);
+        HandleFollowMouse();
     }
 
     public void Hide() {
         gameObject.SetActive(false);
+    }
+
+    public class TooltipTimer {
+        public float timer;
     }
 }
