@@ -10,21 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e52fc0fe0482b545b00858950322e5e, type: 3}
-  m_Name: SilverHarvester
+  m_Name: TowerStone
   m_EditorClassIdentifier: 
-  nameString: Silver Harvester
-  prefab: {fileID: 560225346098127074, guid: 962b7a7782dca244da8cc886d3eb3b71, type: 3}
-  sprite: {fileID: 21300000, guid: e09981bcaf0d52049b2bad1cf5d42346, type: 3}
-  hasResourceGeneratorData: 1
+  nameString: Stone Tower
+  prefab: {fileID: 453496587237905750, guid: dea10577adf289049b1a45bd4c764d32, type: 3}
+  sprite: {fileID: 21300000, guid: 3a549cd61f4d79e4b996c9978dac641f, type: 3}
   resourceGeneratorData:
-    timerMax: 1.5
-    resourceType: {fileID: 11400000, guid: 748a11739d8270246936227cb0f77cf8, type: 2}
-    resourceDetectionRadius: 8
-    maxResourceAmount: 3
-  minConstructionRadius: 10
+    timerMax: 0
+    resourceType: {fileID: 0}
+    resourceDetectionRadius: 0
+    maxResourceAmount: 0
+  minConstructionRadius: 7
   constructResourceCostArray:
   - resourceType: {fileID: 11400000, guid: 3e9021238cbe7d04585db343031e50e6, type: 2}
-    amount: 25
+    amount: 60
   - resourceType: {fileID: 11400000, guid: f3acace7a36db4d4db4d3f0ebeca0020, type: 2}
-    amount: 50
-  healthAmountMax: 100
+    amount: 30
+  healthAmountMax: 120

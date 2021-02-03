@@ -7,6 +7,11 @@ public class ResourceManager : MonoBehaviour {
 
     public static ResourceManager Instance { get; private set; }
     public event EventHandler OnResourceAmountChanged;
+
+    // DEVMOD
+    [SerializeField] private List<ResourceAmount> startingResouceAmountList;
+    // END
+
     private Dictionary<ResourceTypeSO, int> resourceAmountDictionary;
 
     private void Awake() {
@@ -17,6 +22,12 @@ public class ResourceManager : MonoBehaviour {
         foreach (ResourceTypeSO resourceType in resourceTypeList.list) {
             resourceAmountDictionary[resourceType] = 0;
         }
+
+        // DEVMOD
+        foreach (ResourceAmount resourceAmount in startingResouceAmountList) {
+            AddResource(resourceAmount.resourceType, resourceAmount.amount);
+        }
+        // END
     }
 
     private void TestLogResourceAmountDictionary() {

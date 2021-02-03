@@ -23,7 +23,11 @@ public class BuildingGhost : MonoBehaviour {
             resourceNearbyOverlay.Hide();
         } else {
             Show(eventArgs.activeBuildingType.sprite);
-            resourceNearbyOverlay.Show(eventArgs.activeBuildingType.resourceGeneratorData);
+            if (eventArgs.activeBuildingType.hasResourceGeneratorData) {
+                resourceNearbyOverlay.Show(eventArgs.activeBuildingType.resourceGeneratorData);
+            } else {
+                resourceNearbyOverlay.Hide();
+            }
         };
     }
 
