@@ -12,15 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e52fc0fe0482b545b00858950322e5e, type: 3}
   m_Name: TowerSilver
   m_EditorClassIdentifier: 
-  nameString: 
-  prefab: {fileID: 0}
-  sprite: {fileID: 0}
+  nameString: Silver Tower
+  prefab: {fileID: 8130084731632346614, guid: 81b598296fd2ba942a26a15a45121e51, type: 3}
+  sprite: {fileID: 21300000, guid: 0abd642a678d6264c9b3af38ba04a6c6, type: 3}
   hasResourceGeneratorData: 0
   resourceGeneratorData:
     timerMax: 0
     resourceType: {fileID: 0}
     resourceDetectionRadius: 0
     maxResourceAmount: 0
-  minConstructionRadius: 0
-  constructResourceCostArray: []
-  healthAmountMax: 0
+  minConstructionRadius: 10
+  constructResourceCostArray:
+  - resourceType: {fileID: 11400000, guid: 3e9021238cbe7d04585db343031e50e6, type: 2}
+    amount: 100
+  - resourceType: {fileID: 11400000, guid: f3acace7a36db4d4db4d3f0ebeca0020, type: 2}
+    amount: 50
+  - resourceType: {fileID: 11400000, guid: 748a11739d8270246936227cb0f77cf8, type: 2}
+    amount: 30
+  healthAmountMax: 150
