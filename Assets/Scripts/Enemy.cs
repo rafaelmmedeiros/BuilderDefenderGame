@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour {
 
     private Rigidbody2D rigidbody2d;
     private Transform targetTransform;
+    private HealthSystem healthSystem;
     private float lookForTargetTimer;
     private float lookForTargetTimerMax = .2f;
 
@@ -21,8 +22,15 @@ public class Enemy : MonoBehaviour {
         rigidbody2d = GetComponent<Rigidbody2D>();
         targetTransform = BuildingManager.Instance.GetHeadquartersBuilding().transform;
 
+        healthSystem = GetComponent<HealthSystem>();
+        healthSystem.OnDie += HealthSystem_Ondied;
+
         // With this, all spawned enemy will have a radom lookForTargetTimerMax, thats is beeter balance on update and some sensation to the player
         lookForTargetTimer = Random.Range(0f, lookForTargetTimerMax);
+    }
+
+    private void HealthSystem_Ondied(object sender, System.EventArgs e) {
+        Destroy(gameObject);
     }
 
     private void Update() {

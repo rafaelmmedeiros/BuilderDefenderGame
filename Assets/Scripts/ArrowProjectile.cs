@@ -15,18 +15,35 @@ public class ArrowProjectile : MonoBehaviour {
     }
 
     private Enemy _targetEnemy;
+    private Vector3 _lastMoveDirection;
+    private float _timeToExpire = 2f;
+    private int _damageAmount = 10;
 
     private void Update() {
-        Vector3 moveDirection = (_targetEnemy.transform.position - transform.position).normalized;
-        transform.eulerAngles = new Vector3(0,0,UtilsClass.GetAngleFromVector(moveDirection));
+        Vector3 moveDirection;
+
+        if (_targetEnemy != null) {
+            moveDirection = (_targetEnemy.transform.position - transform.position).normalized;
+            _lastMoveDirection = moveDirection;
+        } else {
+            moveDirection = _lastMoveDirection;
+        }
 
         float moveSpeed = 20f;
         transform.position += moveDirection * moveSpeed * Time.deltaTime;
+
+        transform.eulerAngles = new Vector3(0, 0, UtilsClass.GetAngleFromVector(moveDirection));
+
+        _timeToExpire -= Time.deltaTime;
+        if (_timeToExpire < 0f) {
+            Destroy(gameObject);
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision) {
         Enemy enemy = collision.GetComponent<Enemy>();
         if (enemy != null) {
             // Hit an enemy
+            enemy.GetComponent<HealthSystem>().Damage(_damageAmount);
             Destroy(gameObject);
         }
 
@@ -35,6 +52,4 @@ public class ArrowProjectile : MonoBehaviour {
     private void SetTarget(Enemy targetEnemy) {
         _targetEnemy = targetEnemy;
     }
-
-
 }
