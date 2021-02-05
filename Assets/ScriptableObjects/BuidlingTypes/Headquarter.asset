@@ -24,3 +24,4 @@ MonoBehaviour:
   minConstructionRadius: 0
   constructResourceCostArray: []
   healthAmountMax: 400
+  constructionTimerMax: 5

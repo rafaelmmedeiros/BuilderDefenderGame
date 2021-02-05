@@ -16,6 +16,7 @@
 - Some contents are easy to grow horizotaly and verticaly, others are stucked.
 - Some aspects are easy to balance, others don´t.
 - Code standards need to be done better.
+- Some Sprites Layers to better organize.
 
 # Conclusion
 

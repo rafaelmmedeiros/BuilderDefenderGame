@@ -17,9 +17,14 @@ public class BuildingConstruction : MonoBehaviour {
     private BuildingTypeSO buildingType;
     private float constructionTimer;
     private float constructionTimerMax;
+    private BoxCollider2D boxCollider2D;
+    private SpriteRenderer spriteRenderer;
+    private BuildingTypeHolder buildingTypeHolder;
 
-    private void Start() {
-
+    private void Awake() {
+        boxCollider2D = GetComponent<BoxCollider2D>();
+        spriteRenderer = transform.Find("sprite").GetComponent<SpriteRenderer>();
+        buildingTypeHolder= GetComponent<BuildingTypeHolder>();
     }
 
     private void Update() {
@@ -36,5 +41,16 @@ public class BuildingConstruction : MonoBehaviour {
 
         constructionTimerMax = buildingType.constructionTimerMax;
         constructionTimer = constructionTimerMax;
+
+        spriteRenderer.sprite = buildingType.sprite;
+        boxCollider2D.offset = buildingType.prefab.GetComponent<BoxCollider2D>().offset;
+        boxCollider2D.size = buildingType.prefab.GetComponent<BoxCollider2D>().size;
+
+        buildingTypeHolder.buildingType = buildingType;
+
+    }
+
+    public float GetConstructionTimerNormalized() {
+        return 1 - (constructionTimer / constructionTimerMax);
     }
 }
