@@ -12,7 +12,7 @@
 
 # To improve on coming projects
 
-- It´s not a true free to grow application, there is a lot of issues and refactoring needed to turn this in a growable game. But, for the size works fine.
+- It´s not a true free to grow application, there is a lot of issues and refactoring is needed to turn this in a growable game. But, for the size works fine.
 - Some contents are easy to grow horizotaly and verticaly, others are stucked.
 - Some aspects are easy to balance, others don´t.
 - Code standards need to be done better.
