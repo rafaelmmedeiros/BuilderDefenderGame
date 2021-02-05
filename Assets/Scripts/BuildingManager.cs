@@ -39,7 +39,8 @@ public class BuildingManager : MonoBehaviour {
                         // Time to pay...
                         ResourceManager.Instance.SpendResouces(activeBuildingType.constructResourceCostArray);
                         // Congratulations!! Time to Instantiate you new BUILDING!!
-                        Instantiate(activeBuildingType.prefab, UtilsClass.GetMouseWorldPosition(), Quaternion.identity);
+                        //Instantiate(activeBuildingType.prefab, UtilsClass.GetMouseWorldPosition(), Quaternion.identity);
+                        BuildingConstruction.Create(UtilsClass.GetMouseWorldPosition(), activeBuildingType);
                     } else {
                         // Trying to be smart?
                         TooltipUI.Insntace.Show("Cannot afford " + activeBuildingType.GetConstructionResourceCostString(), new TooltipUI.TooltipTimer { timer = 2f });
