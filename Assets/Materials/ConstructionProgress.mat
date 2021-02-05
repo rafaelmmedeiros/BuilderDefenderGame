@@ -42,12 +42,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _EnableExternalAlpha: 0
-    - _OutlineThickness: 0.001
-    - _Progress: 0.277
-    - _Segments: 25
+    - _OutlineThickness: 0.005
+    - _Progress: 0.544
+    - _Segments: 16
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 2, g: 0, b: 0.11764706, a: 0}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _OutlineColor: {r: 0, g: 2.729412, b: 4, a: 0}
+    - _OutlineColor: {r: 0.6847144, g: 1.7207954, b: 0, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
