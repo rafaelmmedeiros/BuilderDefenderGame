@@ -321,4 +321,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce582f8b9a2eec84cb66478fd1f26fe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  building: {fileID: 0}
+  healthSystem: {fileID: 0}
+  goldResourceType: {fileID: 11400000, guid: 2f378304d2940cc44b85607e9f8ab03c, type: 2}
