@@ -47,7 +47,6 @@ public class BuildingManager : MonoBehaviour {
                         ResourceManager.Instance.SpendResouces(activeBuildingType.constructResourceCostArray);
                         // Congratulations!! Time to Instantiate you new BUILDING!!
                         //Instantiate(activeBuildingType.prefab, UtilsClass.GetMouseWorldPosition(), Quaternion.identity);
-                        SoundManager.Instance.PlaySound(SoundManager.Sound.BuildingPlaced);
                         BuildingConstruction.Create(UtilsClass.GetMouseWorldPosition(), activeBuildingType);
                     } else {
                         // Trying to be smart?

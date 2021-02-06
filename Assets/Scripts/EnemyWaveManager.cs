@@ -45,6 +45,7 @@ public class EnemyWaveManager : MonoBehaviour {
                 }
                 break;
             case State.SpawningWave:
+                //SoundManager.Instance.PlaySound(SoundManager.Sound.EnemyWaveStarting);
                 if (remainingEnemySpawnAmount > 0) {
                     nextEnemySpawnTimer -= Time.deltaTime;
                     if (nextEnemySpawnTimer < 0f) {

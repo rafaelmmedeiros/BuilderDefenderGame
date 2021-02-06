@@ -1,6 +1,6 @@
 <Banner Here>
 
-# BuilderDefenderGame 
+# BuilderDefenderGame
 
 - That´s a short tower defense game, made line by line fallowing classes and added some modifications for understanding of Unity Development.
 
@@ -16,7 +16,7 @@
 - Some contents are easy to grow horizotaly and verticaly, others are stucked.
 - Some aspects are easy to balance, others don´t.
 - Code standards need to be done better.
-- Some Sprites Layers to better organize.
+- Some Sprites Layers need to be better organized.
 
 # Conclusion
 
