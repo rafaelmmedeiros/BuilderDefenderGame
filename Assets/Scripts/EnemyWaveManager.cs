@@ -24,6 +24,7 @@ public class EnemyWaveManager : MonoBehaviour {
     private float nextEnemySpawnTimer;
     private int remainingEnemySpawnAmount;
     Vector3 spawnPosition;
+    private float timeToSpawn = 20f;
 
     private void Awake() {
         Instance = this;
@@ -33,7 +34,7 @@ public class EnemyWaveManager : MonoBehaviour {
         state = State.WaitingToSpawnNextWave;
         spawnPosition = spawnPositionTransformList[UnityEngine.Random.Range(0, spawnPositionTransformList.Count)].position;
         nextWaveSpawnPositionTransform.position = spawnPosition;
-        nextWaveSpawnTimer = 20f;
+        nextWaveSpawnTimer = timeToSpawn;
     }
 
     private void Update() {
@@ -57,7 +58,7 @@ public class EnemyWaveManager : MonoBehaviour {
                             state = State.WaitingToSpawnNextWave;
                             spawnPosition = spawnPositionTransformList[UnityEngine.Random.Range(0, spawnPositionTransformList.Count)].position;
                             nextWaveSpawnPositionTransform.position = spawnPosition;
-                            nextWaveSpawnTimer = 20f;
+                            nextWaveSpawnTimer = timeToSpawn;
                         }
                     }
                 }
