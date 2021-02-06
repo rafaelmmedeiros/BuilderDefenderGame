@@ -33,6 +33,7 @@ public class BuildingManager : MonoBehaviour {
 
     private void Headquarters_OnDie(object sender, EventArgs e) {
         GameOverUI.Instance.Show();
+        SoundManager.Instance.PlaySound(SoundManager.Sound.GameOver);
     }
 
     private void Update() {
@@ -46,6 +47,7 @@ public class BuildingManager : MonoBehaviour {
                         ResourceManager.Instance.SpendResouces(activeBuildingType.constructResourceCostArray);
                         // Congratulations!! Time to Instantiate you new BUILDING!!
                         //Instantiate(activeBuildingType.prefab, UtilsClass.GetMouseWorldPosition(), Quaternion.identity);
+                        SoundManager.Instance.PlaySound(SoundManager.Sound.BuildingPlaced);
                         BuildingConstruction.Create(UtilsClass.GetMouseWorldPosition(), activeBuildingType);
                     } else {
                         // Trying to be smart?

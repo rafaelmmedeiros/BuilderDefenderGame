@@ -24,16 +24,22 @@ public class Enemy : MonoBehaviour {
         if (BuildingManager.Instance.GetHeadquartersBuilding()) {
             targetTransform = BuildingManager.Instance.GetHeadquartersBuilding().transform;
         }
-        
+
         healthSystem = GetComponent<HealthSystem>();
+        healthSystem.OnDamage += HealthSystem_OnDamage;
         healthSystem.OnDie += HealthSystem_Ondied;
 
         // With this, all spawned enemy will have a radom lookForTargetTimerMax, thats is beeter balance on update and some sensation to the player
         lookForTargetTimer = Random.Range(0f, lookForTargetTimerMax);
     }
 
+    private void HealthSystem_OnDamage(object sender, System.EventArgs e) {
+        SoundManager.Instance.PlaySound(SoundManager.Sound.EnemyHit);
+    }
+
     private void HealthSystem_Ondied(object sender, System.EventArgs e) {
         Destroy(gameObject);
+        SoundManager.Instance.PlaySound(SoundManager.Sound.EnemyDie);
     }
 
     private void Update() {
