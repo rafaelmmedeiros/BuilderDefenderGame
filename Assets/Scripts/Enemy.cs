@@ -20,8 +20,11 @@ public class Enemy : MonoBehaviour {
 
     private void Start() {
         rigidbody2d = GetComponent<Rigidbody2D>();
-        targetTransform = BuildingManager.Instance.GetHeadquartersBuilding().transform;
 
+        if (BuildingManager.Instance.GetHeadquartersBuilding()) {
+            targetTransform = BuildingManager.Instance.GetHeadquartersBuilding().transform;
+        }
+        
         healthSystem = GetComponent<HealthSystem>();
         healthSystem.OnDie += HealthSystem_Ondied;
 
@@ -96,7 +99,9 @@ public class Enemy : MonoBehaviour {
         // If the target was destroyed before reach...
         if (targetTransform == null) {
             // TARGET THE HEADQAUTERS!!!
-            targetTransform = BuildingManager.Instance.GetHeadquartersBuilding().transform;
+            if (BuildingManager.Instance.GetHeadquartersBuilding() != null) {
+                targetTransform = BuildingManager.Instance.GetHeadquartersBuilding().transform;
+            }
         }
     }
 }

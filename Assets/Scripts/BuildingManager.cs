@@ -27,6 +27,12 @@ public class BuildingManager : MonoBehaviour {
 
     private void Start() {
         mainCamera = Camera.main;
+
+        headquartersBuilding.GetComponent<HealthSystem>().OnDie += Headquarters_OnDie;
+    }
+
+    private void Headquarters_OnDie(object sender, EventArgs e) {
+        GameOverUI.Instance.Show();
     }
 
     private void Update() {
