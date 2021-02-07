@@ -37,11 +37,16 @@ public class Building : MonoBehaviour {
     private void HealthSystem_OnDamage(object sender, EventArgs e) {
         ShowBuildingRepairButton();
         SoundManager.Instance.PlaySound(SoundManager.Sound.BuildingDamaged);
+        CineMachineShake.Instance.ShakeCamera(7f, .15f);
+        ChromaticAberrationEffect.Instance.SetWeight(1f);
     }
 
     private void HealthSystem_OnDied(object sender, EventArgs e) {
+        Instantiate(Resources.Load<Transform>("pfBuildingDestroyedParticles"), transform.position, Quaternion.identity);
         Destroy(gameObject);
         SoundManager.Instance.PlaySound(SoundManager.Sound.BuildingDestroyed);
+        CineMachineShake.Instance.ShakeCamera(10f, .2f);
+        ChromaticAberrationEffect.Instance.SetWeight(1f);
     }
 
     private void OnMouseEnter() {
