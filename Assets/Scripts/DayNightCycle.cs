@@ -1,18 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
-public class DayNightCycle : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+public class DayNightCycle : MonoBehaviour {
+
+    [SerializeField] private Gradient gradient;
+    [SerializeField] private float secondsPerDay = 50f;
+
+    private Light2D light2d;
+    private float dayTime;
+    private float dayTimeSpeed;
+
+    private void Awake() {
+        light2d = GetComponent<Light2D>();
+        dayTimeSpeed = 1 / secondsPerDay;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void Update() {
+        dayTime += Time.deltaTime * dayTimeSpeed;
+        light2d.color = gradient.Evaluate(dayTime % 1f);
     }
+
 }
