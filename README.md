@@ -1,4 +1,3 @@
-<Banner Here>
 
 # BuilderDefenderGame
 
@@ -11,24 +10,14 @@
 
 # Observations
 
-
-
-
-
-
-- Why game devs use so many Singleton Pattern? Get rid of then on next project... They violete SOLID principles. There is anothers ways.
 - It´s not a true free to grow application, there is a lot of issues and refactoring is needed to turn this in a growable game. But, works fine. Because It´ll not grow.
-- Some contents are easy to grow horizotaly and verticaly, others are stucked.
+- Some contents are easy to grow, others are stucked.
 - Some aspects are easy to balance, others don´t.
 - Code standards need to be done better.
-- In this Application there´s a lot of good implementation and a lot of bad implementations.
-
 # Conclusion
 
 - Think and write expandable code is the best way to success.
-- Apply the SOLID principles is a good way to do things...
-- It wat a great experience writing code, cnanging small things and thinking of beeter ways.
-
+- Apply the SOLID principles is a good way to do things.
 # Video on Youtube
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=wmuAUYB9emM
