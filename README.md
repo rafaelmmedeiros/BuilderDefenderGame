@@ -6,8 +6,6 @@
 # Goals
 
 - Learning the basics of Unity.
-- Understand how to make software that grows with little changes in what has already been done.
-
 # Observations
 
 - It´s not a true free to grow application, there is a lot of issues and refactoring is needed to turn this in a growable game. But, works fine. Because It´ll not grow.
