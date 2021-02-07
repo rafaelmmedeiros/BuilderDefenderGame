@@ -14,10 +14,6 @@
 - Some contents are easy to grow, others are stucked.
 - Some aspects are easy to balance, others don´t.
 - Code standards need to be done better.
-# Conclusion
-
-- Think and write expandable code is the best way to success.
-- Apply the SOLID principles is a good way to do things.
 # Video on Youtube
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=wmuAUYB9emM
