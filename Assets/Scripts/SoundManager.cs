@@ -24,6 +24,8 @@ public class SoundManager : MonoBehaviour {
         Instance = this;
         audioSource = GetComponent<AudioSource>();
 
+        volume = LoadPrefs();
+
         soundAudioClipDictionary = new Dictionary<Sound, AudioClip>();
         foreach (Sound sound in System.Enum.GetValues(typeof(Sound))) {
             soundAudioClipDictionary[sound] = Resources.Load<AudioClip>(sound.ToString());
@@ -37,11 +39,21 @@ public class SoundManager : MonoBehaviour {
     public void IncreaseVolume() {
         volume += .1f;
         volume = Mathf.Clamp01(volume);
+        SavePrefs(volume);
     }
 
     public void decreaseVolume() {
         volume -= .1f;
         volume = Mathf.Clamp01(volume);
+        SavePrefs(volume);
+    }
+
+    public void SavePrefs(float volume) {
+        PlayerPrefs.SetFloat("soundVolume", volume);
+    }
+
+    public float LoadPrefs() {
+        return PlayerPrefs.GetFloat("soundVolume");
     }
 
     public float GetVolume() {

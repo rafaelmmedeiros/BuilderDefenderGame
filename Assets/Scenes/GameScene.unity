@@ -7496,7 +7496,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 44}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &470048027
@@ -8113,7 +8113,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 29.99999
+  orthographic size: 10.00001
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -9932,13 +9932,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingResouceAmountList:
   - resourceType: {fileID: 11400000, guid: 3e9021238cbe7d04585db343031e50e6, type: 2}
-    amount: 500
+    amount: 0
   - resourceType: {fileID: 11400000, guid: f3acace7a36db4d4db4d3f0ebeca0020, type: 2}
-    amount: 250
+    amount: 0
   - resourceType: {fileID: 11400000, guid: 748a11739d8270246936227cb0f77cf8, type: 2}
-    amount: 100
+    amount: 0
   - resourceType: {fileID: 11400000, guid: 2f378304d2940cc44b85607e9f8ab03c, type: 2}
-    amount: 100
+    amount: 0
 --- !u!4 &608620303
 Transform:
   m_ObjectHideFlags: 0
@@ -17748,7 +17748,7 @@ MonoBehaviour:
   m_Follow: {fileID: 173255686}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 29.99999
+    OrthographicSize: 10.00001
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
