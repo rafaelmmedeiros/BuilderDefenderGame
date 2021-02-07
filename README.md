@@ -29,4 +29,8 @@
 - Apply the SOLID principles is a good way to do things...
 - It wat a great experience writing code, cnanging small things and thinking of beeter ways.
 
-# ScreenShots
+# Video
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=wmuAUYB9emM
+" target="_blank"><img src="http://img.youtube.com/vi/wmuAUYB9emM/0.jpg" 
+alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
