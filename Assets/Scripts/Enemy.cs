@@ -5,8 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour {
 
     public static Enemy Create(Vector3 position) {
-        Transform pfEnemy = Resources.Load<Transform>("pfEnemy");
-        Transform enemyTrasnform = Instantiate(pfEnemy, position, Quaternion.identity);
+        Transform enemyTrasnform = Instantiate(GameAssets.Instance.pfEnemy, position, Quaternion.identity);
 
         Enemy enemy = enemyTrasnform.GetComponent<Enemy>();
         return enemy;
