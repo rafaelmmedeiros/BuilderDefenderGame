@@ -1,7 +1,7 @@
 
 # BuilderDefenderGame
 
-- That´s a short tower defense game, made line by line fallowing classes and added some modifications for understanding of Unity Development.
+- That´s a short tower defense game.
 
 # Goals
 
